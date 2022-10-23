@@ -1,0 +1,8 @@
+<h2>Edit Task</h2>
+<hr>
+<a href="{% url 'task_list' %}">Cancel</a>
+<form action="" method="POST">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <button type="submit">Save</button>
+</form>
