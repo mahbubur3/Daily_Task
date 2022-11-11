@@ -1,9 +1,30 @@
-<h2>SignIn</h2>
+{% extends 'Main/base.html' %}
+{% block content %}
 
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">SignIn</button>
-</form>
+<section class="vh-100" style="background-color: #D0E1F9;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-8">
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body p-5">
 
-<p>Don't have an account? <a href="{% url 'signup' %}">SignUp</a></p>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <h2>SignIn</h2>
+                            </div>
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button class="btn custom-btn text-light mb-2" type="submit">Signin</button>
+                            </form>
+                            <p>Don't have an account? <a href="{% url 'signup' %}">Register</a></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

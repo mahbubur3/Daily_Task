@@ -7,6 +7,7 @@ from django.contrib.auth import login
 from django.shortcuts import redirect
 
 from .models import Task
+from .forms import EditTaskForm, CreateTaskForm, SigninForm, SignupForm
 
 
 # view all tasks on homepage
@@ -31,11 +32,11 @@ class TaskList(LoginRequiredMixin, ListView):
 # create a task
 class CreateTask(LoginRequiredMixin, CreateView):
     model = Task
-    fields = ['title', 'description', 'complete']
+    form_class = CreateTaskForm
     template_name = 'Main/create_task.html'
     success_url = reverse_lazy('task_list')
 
-    # select user to create a task
+    # select user to create a task,
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(CreateTask, self).form_valid(form)
@@ -50,7 +51,7 @@ class TaskDetail(LoginRequiredMixin, DetailView):
 # edit a task
 class EditTask(LoginRequiredMixin, UpdateView):
     model = Task
-    fields = '__all__'
+    form_class = EditTaskForm
     template_name = 'Main/edit_task.html'
     success_url = reverse_lazy('task_list')
 
@@ -65,8 +66,8 @@ class DeleteTask(LoginRequiredMixin, DeleteView):
 
 # user signin
 class UserSignin(LoginView):
-    fields = '__all__'
     template_name = 'Main/signin.html'
+    form_class = SigninForm
     redirect_authenticated_user = True
 
     def get_success_url(self):
@@ -76,7 +77,7 @@ class UserSignin(LoginView):
 # user signup or registration
 class UserSignup(FormView):
     template_name = 'Main/signup.html'
-    form_class = UserCreationForm
+    form_class = SignupForm
     redirect_authenticated_user = True
     success_url = reverse_lazy('task_list')
 
