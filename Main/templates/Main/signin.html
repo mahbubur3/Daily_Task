@@ -1,4 +1,4 @@
-{% extends 'Main/base.html' %}
+{% extends 'base.html' %}
 {% block content %}
 
 <section class="vh-100" style="background-color: #D0E1F9;">
@@ -17,7 +17,7 @@
                                 {{ form.as_p }}
                                 <button class="btn custom-btn text-light mb-2" type="submit">Signin</button>
                             </form>
-                            <p>Don't have an account? <a href="{% url 'signup' %}">Register</a></p>
+                            <p>Don't have an account? <a href="{% url 'signup' %}" class="fw-bold text-decoration-none custom-font-color">Register</a></p>
                         </div>
 
                     </div>

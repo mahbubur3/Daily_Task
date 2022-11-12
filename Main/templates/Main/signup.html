@@ -1,4 +1,4 @@
-{% extends 'Main/base.html' %}
+{% extends 'base.html' %}
 {% block content %}
 
 <section class="vh-100" style="background-color: #D0E1F9;">
@@ -10,14 +10,14 @@
 
                         <div class="card-body">
                             <div class="mb-3">
-                                <h2>SignUp</h2>
+                                <h2>Register an account</h2>
                             </div>
                             <form action="" method="POST">
                                 {% csrf_token %}
                                 {{ form.as_p }}
-                                <button type="submit" class="btn custom-btn text-light mb-2">SignUp</button>
+                                <button type="submit" class="btn custom-btn text-light mb-2">Register</button>
                             </form>
-                            <p>Already have an account? <a href="{% url 'signin' %}">Signin</a></p>
+                            <p>Already have an account? <a href="{% url 'signin' %}" class="fw-bold text-decoration-none custom-font-color">Signin</a></p>
                         </div>
 
                     </div>
