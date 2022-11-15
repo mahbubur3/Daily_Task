@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-l0^ym_-yo5x%gqnupzm_1gp)l0s(p)4ri+_1l5*!itmj8rf0x0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*", "web-production-4934.up.railway.app"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -70,6 +70,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'DailyTasks.wsgi.application'
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-4934.up.railway.app'
+]
 
 
 # Database
