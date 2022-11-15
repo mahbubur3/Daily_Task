@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.shortcuts import redirect
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import Task
 from .forms import EditTaskForm, CreateTaskForm, SigninForm, SignupForm
@@ -30,6 +31,7 @@ class TaskList(LoginRequiredMixin, ListView):
 
 
 # create a task
+@csrf_exempt
 class CreateTask(LoginRequiredMixin, CreateView):
     model = Task
     form_class = CreateTaskForm
@@ -42,13 +44,15 @@ class CreateTask(LoginRequiredMixin, CreateView):
         return super(CreateTask, self).form_valid(form)
 
 
-# view details of a task  
+# view details of a task
+@csrf_exempt
 class TaskDetail(LoginRequiredMixin, DetailView):
     model = Task
     context_object_name = 'task'
 
 
 # edit a task
+@csrf_exempt
 class EditTask(LoginRequiredMixin, UpdateView):
     model = Task
     form_class = EditTaskForm
@@ -57,6 +61,7 @@ class EditTask(LoginRequiredMixin, UpdateView):
 
 
 # delete a task 
+@csrf_exempt
 class DeleteTask(LoginRequiredMixin, DeleteView):
     model = Task
     context_object_name = 'task'
@@ -65,6 +70,7 @@ class DeleteTask(LoginRequiredMixin, DeleteView):
 
 
 # user signin
+@csrf_exempt
 class UserSignin(LoginView):
     template_name = 'Main/signin.html'
     form_class = SigninForm
@@ -75,6 +81,7 @@ class UserSignin(LoginView):
 
 
 # user signup or registration
+@csrf_exempt
 class UserSignup(FormView):
     template_name = 'Main/signup.html'
     form_class = SignupForm
