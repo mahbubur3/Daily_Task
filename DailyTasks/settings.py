@@ -72,7 +72,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'DailyTasks.wsgi.application'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-4934.up.railway.app'
+    'https://web-production-cf3b.up.railway.app' 
 ]
 
 
@@ -84,9 +84,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'YXCiZgiaFwVl6YWhLXQL',
-        'HOST': 'containers-us-west-128.railway.app',
-        'PORT': '5609',
+        'PASSWORD': 'VyX9MwRvX3tjnpBWxF8r',
+        'HOST': 'containers-us-west-143.railway.app',
+        'PORT': '6675',
     }
 }
 
