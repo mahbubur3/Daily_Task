@@ -72,7 +72,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'DailyTasks.wsgi.application'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-cf3b.up.railway.app' 
+    'https://daily-task.up.railway.app' 
 ]
 
 
